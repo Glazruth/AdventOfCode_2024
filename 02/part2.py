@@ -10,9 +10,16 @@ for line in file:
     descending = False
     foundProblem = False
 
-    for y in range(len(popped_row)):
-        popped_row = row
+    for y in range(len(row)):
+        popped_row = []
+        solutionForLineFound = False
+        for line in row:
+            popped_row.append(line)
+
         popped_row.pop(y)
+        print(row)
+        print(popped_row)
+        print("______")
 
         if popped_row[0] > popped_row[1]:
             descending = True
@@ -38,5 +45,10 @@ for line in file:
 
             if x == (len(popped_row)-1):
                 result +=1
+                solutionForLineFound = True
+                break
+
+        if solutionForLineFound:
+            break
 
 print(result)
